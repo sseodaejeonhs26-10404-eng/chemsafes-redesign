@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#126551">
+  <title>시약 세이프</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+<main>
+  <header><span class="badge">학교 실험 안전 도우미 · 시제품</span><h1>시약 세이프<span>실험의 마지막까지 안전하게.</span></h1><p>시약 이름으로 정보를 찾고, 폐기 전 확인 항목을 체크하세요.</p></header>
+  <aside class="notice">교육용 참고 앱입니다. 농도·혼합물·폐수통 내용물에 따라 위험과 분류가 달라집니다. 실제 제품 SDS와 학교 지침을 담당 선생님과 확인하세요. 싱크대에 버리거나 직접 중화하지 마세요.</aside>
+  <section class="panel" aria-labelledby="search-title">
+    <h2 id="search-title">어떤 시약을 확인할까요?</h2>
+    <form id="search-form">
+      <label for="query">시약 이름</label>
+      <div class="search"><input id="query" placeholder="예: 염산" autocomplete="off" aria-describedby="search-help search-error" enterkeyhint="search"><button type="submit" aria-controls="result">정보 찾기</button></div>
+      <p id="search-help" class="muted">한 번에 한 시약을 입력하세요. 아래 이름을 눌러도 됩니다.</p>
+    </form>
+    <div id="examples" class="chips" aria-label="등록된 시약"></div>
+    <p id="search-error" role="alert" class="error"></p>
+  </section>
+  <section id="result" class="panel" hidden aria-labelledby="result-title">
+    <div class="result-heading"><h2 id="result-title"></h2><span id="formula" class="badge"></span></div>
+    <dl id="details"></dl>
+    <p class="muted"><a id="source" target="_blank" rel="noopener noreferrer">CDC/NIOSH 원문 확인</a> · 자료 확인: 2026-11-23 · 학교 검수 전</p>
+  </section>
+  <div class="workflow-grid">
+  <section class="panel" aria-labelledby="mix-title">
+    <h2 id="mix-title">함께 버리기 전, 혼합 위험 확인</h2>
+    <p class="muted">비교할 시약을 2개 이상 선택하세요. 실제로 섞지 마세요.</p>
+    <fieldset id="mix-options"><legend class="sr-only">비교할 시약</legend></fieldset>
+    <button id="mix-check" type="button" class="secondary">혼합 위험 확인</button>
+    <div id="mix-result" role="status" hidden></div>
+  </section>
+  <section class="panel" aria-labelledby="check-title">
+    <h2 id="check-title">마지막 안전 확인</h2>
+    <p id="check-hint" class="muted">먼저 시약 정보를 검색하세요. 검색이나 비교 조건을 바꾸면 체크가 초기화됩니다.</p>
+    <fieldset id="safety" disabled>
+      <legend class="sr-only">안전 체크리스트</legend>
+      <label><input type="checkbox">시약에 맞는 장갑·보안경·실험복을 착용했어요.</label>
+      <label><input type="checkbox">시약 라벨과 농도, 제품 SDS를 확인했어요.</label>
+      <label><input type="checkbox">선생님과 폐수통 라벨·내용물·분류를 확인했어요.</label>
+      <label><input type="checkbox">혼합 위험을 확인하고 선생님의 처리 지시를 받았어요.</label>
+    </fieldset>
+    <button id="complete" type="button" disabled>처리 완료</button>
+    <p id="complete-message" role="status"></p>
+  </section>
+  </div>
+  <footer>시약 5종 수록 · 정보 검색과 체크는 이 화면에서만 동작하며 별도로 저장되지 않습니다.</footer>
+</main>
+</body>
+</html>
